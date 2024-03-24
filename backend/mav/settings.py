@@ -37,7 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    ''
+    
+    #Installed Apps 1
+    'rest_framework',
+    
+    #Installed Apps 2
+    'apps.user',
+    'apps.machine',
+    'apps.video_processing',
 ]
 
 MIDDLEWARE = [
@@ -48,11 +55,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-    #Installed Apps
-    'apps.users',
-    'apps.machine',
-    'apps.video_processing'
 ]
 
 ROOT_URLCONF = 'mav.urls'
