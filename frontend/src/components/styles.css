@@ -1,0 +1,10 @@
+.gradient-border:hover {    /* max-width:100%;
+    padding: 2px;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(#1f1f1f, #1f1f1f) padding-box, linear-gradient(60deg,#b03f0e, #f3892b) border-box; 
+    box-shadow: 0 0 3px #f3892b;
+    transition: 0.2s;
+ */
+}

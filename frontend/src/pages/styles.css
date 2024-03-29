@@ -1,0 +1,12 @@
+@keyframes moveBar {
+    0%, 100% {
+      transform: translateX(-50%);
+    }
+    50% {
+      transform: translateX(50%);
+    }
+  }
+  
+  .animate-bar {
+    animation: moveBar 2s infinite;
+  }
