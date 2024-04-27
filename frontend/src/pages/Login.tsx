@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import frontImage from "../assets/frontImage.png";
 import mavLogo from "../assets/mav-logo.svg";
-import { Spin } from "antd";
+import { Input } from "antd";
+import { Button, Spin } from "antd";
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  const [loginToggle, setLoginToggle] = useState(true);
 
   const handleLogin = () => {
     setLoading(true);
@@ -15,43 +19,86 @@ const LoginPage = () => {
     }, 3000);
   };
 
+  const handleLoginToggle = () => {
+    setLoginToggle(!loginToggle);
+  };
+
   return (
-    <div className="min-h-[100vh] min-w-[100vw] bg-[#1f1f1f] ">
-      <div className="pt-8 flex flex-col justify-center items-center">
-        <img src={mavLogo} className="max-h-[14vh]" />
-        <div className="border-2 flex flex-col p-10 mt-10 rounded-xl justify-center items-center">
-          <div className="mt-3">
-            <p
-              className="dm-sans text-[2.8rem] font-semibold"
-              style={{
-                background:
-                  "linear-gradient(0deg, #FC575E 13.61%, #F7B42C 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                color: "transparent",
-              }}
+    <div className="min-h-[100vh] min-w-[100vw] bg-[#1f1f1f] grid grid-cols-2 ">
+      <div>
+        <img src={frontImage} alt="" className="h-[100vh]" />
+      </div>
+      <div className="flex flex-col items-center">
+        <img src={mavLogo} alt="" className="h-[5rem] mt-16" />
+        <div className="bg-white rounded-xl mt-12 flex flex-col items-center px-10 pb-10 pt-3 gap-6">
+          <div
+            className={`rounded-full border-2 w-max border-orange-500 flex text-white text-sm`}
+          >
+            <div
+              className={`m-1 p-2 rounded-full cursor-pointer ${
+                loginToggle ? "bg-orange-500" : "text-black"
+              } `}
+              onClick={handleLoginToggle}
             >
-              Login
-            </p>
+              <p>Login</p>
+            </div>
+            <div
+              className={`m-1 p-2 rounded-full cursor-pointer ${
+                loginToggle ? " text-black" : "bg-orange-500"
+              } `}
+              onClick={handleLoginToggle}
+            >
+              <p>Register</p>
+            </div>
           </div>
-          <div className="mt-6 text-[1rem] font-semibold text-white flex flex-col justify-center items-center gap-4">
-            <input
-              className="p-3 bg-[#fe4900] rounded-lg w-[80%]"
-              type="text"
-              placeholder="Username"
-            />
-            <input
-              className="p-3 bg-[#fe4900] rounded-lg w-[80%]"
-              type="password"
-              placeholder="Password"
-            />
-            <button
-              className="p-3 bg-[#fe4900] rounded-lg w-[80%]"
-              onClick={handleLogin}
-            >
-              {loading ? <Spin style={{ color: "white" }} /> : "Login"}
-            </button>
+          <div>
+            {loginToggle ? (
+              <div className="flex flex-col gap-8">
+                <div className="text-xs m">
+                  <p>Username:</p>
+                  <Input placeholder="Username" />
+                </div>
+                <div className="text-xs m">
+                  <p>Password:</p>
+                  <Input placeholder="Username" />
+                </div>
+                <Button
+                  type="primary"
+                  loading={loading}
+                  onClick={handleLogin}
+                  style={{ backgroundColor: "#f97316", borderColor: "#f97316" }}
+                >
+                  {loading ? <div></div>: 'Submit'}
+                </Button>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-8">
+                <div className="text-xs m">
+                  <p>Username:</p>
+                  <Input placeholder="Username" />
+                </div>
+                <div className="text-xs m">
+                  <p>Company Name:</p>
+                  <Input placeholder="Email" />
+                </div>
+                <div className="text-xs m">
+                  <p>Email:</p>
+                  <Input placeholder="Password" />
+                </div>
+                <div className="text-xs m">
+                  <p>Password:</p>
+                  <Input placeholder="Password" />
+                </div>
+                <Button
+                  type="primary"
+                  loading={loading}
+                  onClick={handleLogin}
+                  style={{ backgroundColor: "#f97316", borderColor: "#f97316" }}
+                >
+                  {loading ? <div></div>: 'Submit'}
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>
