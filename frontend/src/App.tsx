@@ -5,6 +5,8 @@ import './App.css'
 import Loading from './pages/Loading'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -23,10 +25,11 @@ function App() {
   return (
     <BrowserRouter> {/* Wrap your app with the router */}
       <Routes>
-        <Route path="/" element={<Login />} /> 
+        <Route path="/" element={<Login />} />
         <Route path="/d" element={<Dashboard />} /> 
         <Route path="/profile" element={<Profile />} />
       </Routes>
+      <ToastContainer /> 
     </BrowserRouter>
   )
 }

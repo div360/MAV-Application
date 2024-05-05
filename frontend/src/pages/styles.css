@@ -10,3 +10,13 @@
   .animate-bar {
     animation: moveBar 2s infinite;
   }
+
+  .ant-modal-content {
+    background-color: black; /* Black background */
+    color: white; /* White text */
+  }
+  
+  /* Ensures text within buttons are also white */
+  .ant-modal-content button {
+    color: white;
+  } 
